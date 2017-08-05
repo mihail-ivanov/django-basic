@@ -17,4 +17,4 @@ Example installation steps:
 
 ## License
 
-[MIT license](../blob/master/LICENSE)
+[MIT license](LICENSE)
