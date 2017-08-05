@@ -1,18 +1,14 @@
 
-{% load render_bundle from webpack_loader %}
-{% load sass_tags %}
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>Template Example</title>
 
-        <link href="{% sass_src 'scss/foundation.scss' %}" rel="stylesheet" type="text/css" />
+        <link href="{% sass_src 'scss/foundation.scss'  %}" rel="stylesheet" type="text/css" />
         <link href="{% sass_src 'scss/bootstrap.scss' %}" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="react-app"></div>
-        {% render_bundle 'main' %}
+        {{ render_bundle('main') }}
     </body>
 </html>

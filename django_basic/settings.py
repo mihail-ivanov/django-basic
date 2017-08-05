@@ -65,29 +65,18 @@ ROOT_URLCONF = 'django_basic.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+            'environment': 'common.jinja2_environment.environment',
+            'extensions': [
+                'webpack_loader.contrib.jinja2ext.WebpackExtension',
+                'sass_processor.jinja2.ext.SassSrc',
+            ]
+        }
     },
 ]
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.jinja2.Jinja2',
-#         'DIRS': [],
-#         'APP_DIRS': True,
-#         'OPTIONS': {
-#             'environment': 'common.environment.environment',
-#         }
-#     },
-# ]
 
 WSGI_APPLICATION = 'django_basic.wsgi.application'
 
@@ -172,3 +161,6 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 SASS_PRECISION = 8
 
 NODE_MODULES_URL = STATIC_URL + 'node_modules/'
+
+from common.jinja2_environment import environment
+COMPRESS_JINJA2_GET_ENVIRONMENT = environment
